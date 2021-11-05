@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import { logo } from '../constant/global';
 
-
-
-
-
 export default class welcome extends Component {
    
   render() 
@@ -17,8 +13,6 @@ export default class welcome extends Component {
        <img src={logo} alt="" srcset="" />
       
       </div>
-    
-
     );
   }
 }
