@@ -44,7 +44,7 @@ class Home extends Component {
 const myStyle = {
  
   Titre:{
-    color: "#a8a399",
+    color: "#ff7f00",
     fontSize:"50px"
   }
   
