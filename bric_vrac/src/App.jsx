@@ -16,8 +16,6 @@ class App extends Component {
           <Route path='/' element={<Home />}></Route>
           <Route path='/login' element={<Login/>}></Route>
           <Route path='/welcome' element={<Welcome />}></Route>
-
-
         </Routes>    
     </div>
   );
