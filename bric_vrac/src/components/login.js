@@ -40,16 +40,22 @@ export default class login extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    alert('Un essai a été envoyé : ' + this.state.username);
-    alert('Un essai a été envoyé : ' + this.state.password);
+   
     let username = this.state.username;
     let password = this.state.password;
     console.log(Users)
-
+    if(username !='' && password != ''){
+      console.log("pas vide ")
+      let result = Users.filter(t=>t.username === username && t.password === password);
+      console.log(result);
+      if(result != ''){
+        console.log("bienvenue")
+      }else{
+        alert("email ou mots de passe mauvais")
+      }
+    }
   }
 
-
- 
   render() {
     const { username, password} = this.state;
 
@@ -57,7 +63,7 @@ export default class login extends Component {
     return (
       <div>
            <h1 style={myStyle.Titre}> Login</h1>
-       <img src={logo} alt="" srcset="" />
+       <img src={logo} alt="" />
        <form onSubmit={this.handleSubmit}>
         <label>
           Identifiant
