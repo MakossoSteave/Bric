@@ -10,33 +10,66 @@ import InputLabel from '@mui/material/InputLabel';
 import FilledInput from '@mui/material/FilledInput';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputAdornment from '@mui/material/InputAdornment';
+import {Users } from '../model/user'
 
 
 
 
-export default class home extends Component {
+export default class login extends Component {
 
-  
+
+  constructor(props) {
+    
+    super(props);
+    this.state = {
+      username: "",
+      password: ""
+    };
+    
+
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleChange(event) {
+
+    this.setState({ [event.target.name]: event.target.value });
+    
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+
+    alert('Un essai a été envoyé : ' + this.state.username);
+    alert('Un essai a été envoyé : ' + this.state.password);
+    let username = this.state.username;
+    let password = this.state.password;
+    console.log(Users)
+
+  }
+
 
  
   render() {
+    const { username, password} = this.state;
+
+    
     return (
       <div>
            <h1 style={myStyle.Titre}> Login</h1>
        <img src={logo} alt="" srcset="" />
-       <Box
-      component="form"
-      sx={{
-        '& > :not(style)': { m: 1, width: '25ch' },
-      }}
-      noValidate
-      autoComplete="off"
-    >
-      <TextField id="standard-basic" label="identifiant" variant="standard" />
-      <TextField id="standard-basic"  type="password" label="password" variant="standard" />
-      <Button variant="contained" color="success" style={myStyle.button} >connection</Button>
-        
-    </Box>
+       <form onSubmit={this.handleSubmit}>
+        <label>
+          Identifiant
+        </label>
+        <input name='username'value={username} onChange={this.handleChange} />
+        <label>
+          Password
+        </label>
+        <input name='password' type='password' value={password} onChange={this.handleChange} />
+
+        <input type="submit" value="Envoyer" />
+      </form>
       </div>
     
 
@@ -49,7 +82,7 @@ const myStyle = {
     top: "10px"
   },
   Titre:{
-    color: "#dbc091",
+    color: "#a8a399",
     fontSize:"50px"
   }
   

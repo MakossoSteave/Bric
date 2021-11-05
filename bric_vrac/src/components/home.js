@@ -25,7 +25,7 @@ class Home extends Component {
       <ThemeProvider theme={theme}>
 
       <div>
-              <h1 color="neutral"><Button disabled>Bienvenue sur bric à vrac </Button>
+              <h1 style={myStyle.Titre}>Bienvenue sur bric à vrac
               </h1>  
               
               <Link to="/login" style={{textDecoration: 'none'}}>
@@ -41,4 +41,12 @@ class Home extends Component {
     );
   }
 }
+const myStyle = {
+ 
+  Titre:{
+    color: "#a8a399",
+    fontSize:"50px"
+  }
+  
+};
 export default Home;
