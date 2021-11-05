@@ -1,16 +1,9 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { logo } from '../constant/global';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import InputLabel from '@mui/material/InputLabel';
-import FilledInput from '@mui/material/FilledInput';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import InputAdornment from '@mui/material/InputAdornment';
-import { useFormControl } from '@mui/material/FormControl';
 import {Users } from '../model/user'
 
 
@@ -123,7 +116,7 @@ const myStyle = {
   button:{
   },
   Titre:{
-    color: "#a8a399",
+    color: "#ff7f00",
     fontSize:"50px"
   },
   styling:{
