@@ -81,7 +81,7 @@ export default class login extends Component {
 
        <div class="form-group">
         <TextField
-            helperText="veuilliez renseigné votre identifiant"
+            helperText=" "
             id="demo-helper-text-aligned"
             label="identifiant"
             name="username"
@@ -92,7 +92,7 @@ export default class login extends Component {
 
        <div class="form-group">
         <TextField
-            helperText="veuilliez renseignez votre mot de passe"
+            helperText=" "
             id="demo-helper-text-aligned"
             label="mot de passe"
             name="password"
