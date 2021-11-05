@@ -10,7 +10,9 @@ import InputLabel from '@mui/material/InputLabel';
 import FilledInput from '@mui/material/FilledInput';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputAdornment from '@mui/material/InputAdornment';
+import { useFormControl } from '@mui/material/FormControl';
 import {Users } from '../model/user'
+
 
 
 
@@ -40,37 +42,77 @@ export default class login extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    alert('Un essai a été envoyé : ' + this.state.username);
-    alert('Un essai a été envoyé : ' + this.state.password);
+   
     let username = this.state.username;
     let password = this.state.password;
     console.log(Users)
-
+    if(username !='' && password != ''){
+      console.log("pas vide ")
+      let result = Users.filter(t=>t.username === username && t.password === password);
+      console.log(result);
+      if(result != ''){
+        console.log("bienvenue")
+      }else{
+        alert("email ou mots de passe mauvais")
+      }
+    }else{
+      alert("veuilliez remplir tous les champs")
+    }
   }
 
-
- 
   render() {
     const { username, password} = this.state;
 
     
     return (
-      <div>
+      
+       <Box
+      sx={{
+        alignItems: 'center',
+        '& > :not(style)': { m: 0 },
+      }}
+    >  
            <h1 style={myStyle.Titre}> Login</h1>
-       <img src={logo} alt="" srcset="" />
+           <Link to="/">
+           <img src={logo} alt="" />
+           </Link>
+       
        <form onSubmit={this.handleSubmit}>
-        <label>
-          Identifiant
-        </label>
-        <input name='username'value={username} onChange={this.handleChange} />
-        <label>
-          Password
-        </label>
-        <input name='password' type='password' value={password} onChange={this.handleChange} />
 
-        <input type="submit" value="Envoyer" />
-      </form>
-      </div>
+       <div class="form-group">
+        <TextField
+            helperText=" "
+            id="demo-helper-text-aligned"
+            label="identifiant"
+            name="username"
+            value={username}
+            onChange={this.handleChange}
+          />
+        </div>
+
+       <div class="form-group">
+        <TextField
+            helperText=" "
+            id="demo-helper-text-aligned"
+            label="mot de passe"
+            name="password"
+            type="password"
+            value={password}
+            onChange={this.handleChange}
+            styles={myStyle.styling}
+          />
+        </div>
+        <Button 
+        variant="outlined" 
+        color="info" 
+        type="submit"
+        
+        >
+         connection
+        </Button>
+      </form> 
+      </Box>
+     
     
 
     );
@@ -79,11 +121,13 @@ export default class login extends Component {
 
 const myStyle = {
   button:{
-    top: "10px"
   },
   Titre:{
     color: "#a8a399",
     fontSize:"50px"
+  },
+  styling:{
+   
   }
   
 };

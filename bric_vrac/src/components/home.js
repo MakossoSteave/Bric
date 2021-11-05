@@ -32,7 +32,7 @@ class Home extends Component {
                     <Button>Login</Button>
               </Link>
              <img src={logo} alt="" srcset="" />
-              <Link  to ="/login"style={{textDecoration: 'none'}}>
+              <Link  to ="/"style={{textDecoration: 'none'}}>
                     <Button color="secondary">Register</Button>
               </Link>
       </div>
