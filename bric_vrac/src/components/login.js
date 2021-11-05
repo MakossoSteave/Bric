@@ -10,7 +10,9 @@ import InputLabel from '@mui/material/InputLabel';
 import FilledInput from '@mui/material/FilledInput';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputAdornment from '@mui/material/InputAdornment';
+import { useFormControl } from '@mui/material/FormControl';
 import {Users } from '../model/user'
+
 
 
 
@@ -53,6 +55,8 @@ export default class login extends Component {
       }else{
         alert("email ou mots de passe mauvais")
       }
+    }else{
+      alert("veuilliez remplir tous les champs")
     }
   }
 
@@ -61,22 +65,54 @@ export default class login extends Component {
 
     
     return (
-      <div>
+      
+       <Box
+      sx={{
+        alignItems: 'center',
+        '& > :not(style)': { m: 0 },
+      }}
+    >  
            <h1 style={myStyle.Titre}> Login</h1>
-       <img src={logo} alt="" />
+           <Link to="/">
+           <img src={logo} alt="" />
+           </Link>
+       
        <form onSubmit={this.handleSubmit}>
-        <label>
-          Identifiant
-        </label>
-        <input name='username'value={username} onChange={this.handleChange} />
-        <label>
-          Password
-        </label>
-        <input name='password' type='password' value={password} onChange={this.handleChange} />
 
-        <input type="submit" value="Envoyer" />
-      </form>
-      </div>
+       <div class="form-group">
+        <TextField
+            helperText="veuilliez renseigné votre identifiant"
+            id="demo-helper-text-aligned"
+            label="identifiant"
+            name="username"
+            value={username}
+            onChange={this.handleChange}
+          />
+        </div>
+
+       <div class="form-group">
+        <TextField
+            helperText="veuilliez renseignez votre mot de passe"
+            id="demo-helper-text-aligned"
+            label="mot de passe"
+            name="password"
+            type="password"
+            value={password}
+            onChange={this.handleChange}
+            styles={myStyle.styling}
+          />
+        </div>
+        <Button 
+        variant="outlined" 
+        color="info" 
+        type="submit"
+        
+        >
+         connection
+        </Button>
+      </form> 
+      </Box>
+     
     
 
     );
@@ -85,11 +121,13 @@ export default class login extends Component {
 
 const myStyle = {
   button:{
-    top: "10px"
   },
   Titre:{
     color: "#a8a399",
     fontSize:"50px"
+  },
+  styling:{
+   
   }
   
 };
