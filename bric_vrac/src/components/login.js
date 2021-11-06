@@ -37,7 +37,10 @@ export default class login extends Component {
     this.setState({ [event.target.name]: event.target.value });
     
   }
+  componentDidMount() {
+    localStorage.getItem('Users');
 
+  }
   handleSubmit(event) {
     event.preventDefault();
 
@@ -51,9 +54,10 @@ export default class login extends Component {
       console.log(result);
       if(result != ''){
         console.log("bienvenue")
+        localStorage.setItem('username' ,JSON.stringify(username));
 
         let history = createHistory();
-        history.push("/welcome");
+        history.push('/welcome');
         let pathUrl = window.location.href;
         window.location.href = pathUrl;  
         
