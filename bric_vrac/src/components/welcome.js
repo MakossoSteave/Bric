@@ -11,9 +11,10 @@ export default class welcome extends Component {
   {
     
     return (
-      <div style={myStyle.box}>
+      <div>
            <h1 style={myStyle.Titre}> Welcome !!!</h1>
-       <img src={logo} alt="" srcset="" />
+       <img src={logo} alt="" srcset="" style={myStyle.image}/>
+       <br></br>
        <Link to='/'>
         <Button variant="outlined" color="error">
         deconnection
@@ -33,8 +34,10 @@ const myStyle = {
     color: "#ff7f00",
     fontSize:"50px"
   },
-  box:{
-    alignItems:'center'
-  }
+ 
+  image:{
+    weight:100,
+    width: 200
+}
   
 };
