@@ -34,7 +34,6 @@ export default class login extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleChange(event) {
-
     this.setState({ [event.target.name]: event.target.value });
     
   }
@@ -69,8 +68,6 @@ export default class login extends Component {
 
   render() {
     const { username, password} = this.state;
-
-    
     return (
       
        <Box
@@ -81,7 +78,7 @@ export default class login extends Component {
     >  
            <h1 style={myStyle.Titre}> Login</h1>
            <Link to="/">
-           <img src={logo} alt="" />
+           <img src={logo} alt=""  style={myStyle.image}/>
            </Link>
        
        <form onSubmit={this.handleSubmit}>
@@ -133,8 +130,9 @@ const myStyle = {
     color: "#ff7f00",
     fontSize:"50px"
   },
-  styling:{
-   
-  }
+  image:{
+    weight:100,
+    width: 200
+}
   
 };
