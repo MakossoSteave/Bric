@@ -31,7 +31,6 @@ for(let i = 0 ; i < Users.length;i++){
    
     return (
       <ThemeProvider theme={theme}>
-
       <div>
               <h1 style={myStyle.Titre}>Bienvenue sur bric à vrac
               </h1>  
