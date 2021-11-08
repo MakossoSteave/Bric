@@ -30,10 +30,11 @@ const Login = () => (
         history.push('/welcome');
         let pathUrl = window.location.href;
         window.location.href = pathUrl;
+    }else{
+      alert("username ou password incorrect ")
     }
   }else{
     alert("veuilliez à remplir tous les champs ")
-    
   }
   }}
 >    
