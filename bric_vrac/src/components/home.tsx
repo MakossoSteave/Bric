@@ -32,9 +32,8 @@ for(let i = 0 ; i < Users.length;i++){
     return (
       <ThemeProvider theme={theme}>
       <div>
-              <h1 style={myStyle.Titre}>Bienvenue sur bric à vrac
-              </h1>  
-              
+
+              <h1 style={myStyle.Titre}>Bienvenue sur bric à vrac</h1>  
               <Link to="/login" style={{textDecoration: 'none'}}>
                     <Button>Login</Button>
               </Link>
@@ -42,12 +41,13 @@ for(let i = 0 ; i < Users.length;i++){
               <Link  to ="/register"style={{textDecoration: 'none'}}>
                     <Button color="secondary">Register</Button>
               </Link>
+              
       </div>
       </ThemeProvider>
-
     );
   }
 }
+
 const myStyle = {
  
   Titre:{
