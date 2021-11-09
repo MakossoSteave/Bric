@@ -9,14 +9,16 @@ import Button from '@mui/material/Button';
 
 const welcome = () => (
   <div>
-    <h1 style={myStyle.Titre}> Welcome !!! </h1>
+       <h1 style={myStyle.Titre}> Welcome !!! </h1>
        <img src={logo} alt=""  style={myStyle.image}/>
-       <br></br>
-       <Link to='/'>
-        <Button variant="outlined" color="error">
-        deconnection
-        </Button>
-       </Link>
+       <div>
+          <Link to='/'>
+            <Button variant="outlined" color="error">
+            deconnection
+            </Button>
+          </Link>
+       </div>
+      
   </div>
 )
 const myStyle = {
@@ -30,7 +32,8 @@ const myStyle = {
  
   image:{
     weight:100,
-    width: 200
+    width: 200,
+    paddingTop:20
 }
   
 };
