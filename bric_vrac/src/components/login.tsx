@@ -19,6 +19,7 @@ const submitValue = () => {
     if(data.username !='' && data.password !=''){
       const createHistory = require("history").createBrowserHistory;
       let result = Users.filter(t=>t.username === data.username && t.password === data.password);
+
           if(result[0]!= null){
             localStorage.setItem('username' ,JSON.stringify(data.username));
             const history = createHistory();

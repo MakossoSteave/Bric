@@ -4,21 +4,37 @@ import { Link } from "react-router-dom";
 import Button from '@mui/material/Button';
 import { useLocation } from "react-router-dom";
 import { useEffect , useState} from "react";
+import Alert from '@mui/material/Alert';
+import { profile } from 'console';
+
+
+
 
 
 
 
 const welcome = () => {
   const [name , setName]= useState('')
+  const [email , setEmail]= useState('')
+  const [succes, setSucces]=useState(false)
+  const [open, setOpen] = React.useState(true);
+  
   useEffect(() => {
-    let profile = JSON.parse(localStorage.getItem('username') || '{}');
-    console.log(profile)
-    setName(profile)
+    const profileName = JSON.parse(localStorage.getItem('username') || '{}');
+    setName(profileName)
+    if(profileName !=''){
+      setSucces(true)
+    }
+    
  });
+ const SuccesMessage = succes && <Alert  severity="success">
+ {name}
+</Alert>
 
 
   return(
   <div>
+    {SuccesMessage}
        <h1 style={myStyle.Titre}> Welcome !!! {name}</h1>
        <img src={logo} alt=""  style={myStyle.image}/>
        <div>
