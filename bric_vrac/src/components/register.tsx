@@ -1,3 +1,4 @@
+import React, {useState} from 'react'
 import { useForm, SubmitHandler } from "react-hook-form";
 import TextField from '@mui/material/TextField';
 import { logo } from '../constant/global';
@@ -5,60 +6,62 @@ import { Link } from "react-router-dom";
 import Fab from '@mui/material/Fab';
 import {Users } from '../model/user'
 
-type Inputs = {
-    Username: string,
-    Password: string,
-    Email: string
+const Register =() => {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
 
-};
 
-export default function Register() {
-  const { register, handleSubmit } = useForm();
-  const onSubmit: SubmitHandler<Inputs> = data => {
-    if(data.Username != '' && data.Password !='' && data.Email != ''){
-        const user_valid ={
-          "id":1,
-          "email":data.Email,
-          "username":data.Username,
-          "password":data.Password,
-          "userToken":"abbc"
-        }
-        Users.push(user_valid)
-        console.log(Users)
-
+const submitValue = (event :React.ChangeEvent<any>) => {
+  event.preventDefault();
+console.log()
+    const data = {
+        'username' : username,
+        'password' : password,
+        'email' :email
+    }
+    if(data.username != '' && data.password !='' && data.email != ''){
+      const user_valid ={
+        "id":1,
+        "email":data.email,
+        "username":data.username,
+        "password":data.password,
+        "userToken":"abbc"
+      }
+      Users.push(user_valid)
     }else{
       alert("veuilliez remplir tous les champs")
     }
-   
-  };
+}
 
-  return (
-      <form onSubmit={handleSubmit(onSubmit)}>
-                  <Link to="/" style={{textDecoration: 'none'}}>
-                  <img src={logo} alt=""  style={myStyle.image} />
-                  </Link>
-            <div>
-                  <TextField id="outlined-required"label="username"
-                      {...register("Username")} />
-            </div>
-            <div style={myStyle.div}>
-                  <TextField id="outlined-password-input" label="Password"type="password"
-                        {...register("Password")}/>
-            </div>
-            <div style={myStyle.div}>
-                  <TextField id="outlined-email-input"label="email" type="email"
-                        {...register("Email")}/>
-            </div>
-            <div style={myStyle.div}>
-                  <Fab variant="extended" type="submit" style={myStyle.div}>
-                          Inscription
-                  </Fab>
-            </div>
-    </form>
-  );
+return(
+    <form  onSubmit={submitValue}>
+  <Link to="/" style={{textDecoration: 'none'}}>
+  <img src={logo} alt=""  style={myStyle.image} />
+  </Link>
+<div>
+  <TextField id="outlined-required"label="username" value={username}
+      onChange={(event) => setUsername(event.target.value)} />
+</div>
+<div style={myStyle.div}>
+  <TextField id="outlined-password-input" label="Password"type="password" value={password}
+      onChange={(event) => setPassword(event.target.value)}/>
+</div>
+<div style={myStyle.div}>
+  <TextField id="outlined-email-input"label="email" type="email" value={email}
+   onChange={(event) => setEmail(event.target.value)}/>
+</div>
+<div style={myStyle.div} >
+  <Fab variant="extended" type="submit" style={myStyle.div} >
+          Inscription
+  </Fab>
+</div>
+</form>
+    )
 }
 const myStyle = {
   button:{
+    paddingTop:"5px"
   },
   Titre:{
     color: "#ff7f00",
@@ -68,8 +71,9 @@ const myStyle = {
       paddingTop: '5px'
   },
   image:{
-    weight:100,
-    width: 200
+    weight:300,
+    width:500
 }
 }
 
+export default Register

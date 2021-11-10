@@ -1,15 +1,25 @@
 import * as React from 'react';
-import TextField from '@mui/material/TextField';
 import { logo } from '../constant/global';
 import { Link } from "react-router-dom";
-import Fab from '@mui/material/Fab';
 import Button from '@mui/material/Button';
+import { useLocation } from "react-router-dom";
+import { useEffect , useState} from "react";
 
 
 
-const welcome = () => (
+
+const welcome = () => {
+  const [name , setName]= useState('')
+  useEffect(() => {
+    let profile = JSON.parse(localStorage.getItem('username') || '{}');
+    console.log(profile)
+    setName(profile)
+ });
+
+
+  return(
   <div>
-       <h1 style={myStyle.Titre}> Welcome !!! </h1>
+       <h1 style={myStyle.Titre}> Welcome !!! {name}</h1>
        <img src={logo} alt=""  style={myStyle.image}/>
        <div>
           <Link to='/'>
@@ -20,7 +30,8 @@ const welcome = () => (
        </div>
       
   </div>
-)
+  )
+  }
 const myStyle = {
   button:{
     top: "10px"
